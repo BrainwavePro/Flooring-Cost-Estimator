@@ -1,0 +1,52 @@
+Console
+// Bobby L - Flooring Cost Estimator
+
+using System;
+
+namespace FlooringCostEstimator
+{
+    class Estimator
+    {
+
+        // Constant Variables
+        const double sqftperhour = 40.0; // 40 sq ft can be installed in one hour
+        const double laborcost = 35.73; // given example numbers (installation cost / number of hours = hourly wage)
+
+        static void Main(string[] args)
+        {
+            // My name
+            Console.WriteLine("Bobby L's Flooring Cost Estimator");
+            Console.WriteLine();
+
+            // User Inputs
+            Console.WriteLine("Please enter length of floor:");
+            double length = double.Parse(Console.ReadLine());
+
+            Console.WriteLine("Please enter width of floor:");
+            double width = double.Parse(Console.ReadLine());
+
+            Console.WriteLine("Please enter the cost per square foot for the flooring selected:");
+            double materialcost = double.Parse(Console.ReadLine());
+
+            // Calculations
+            double totalsqft = length * width;
+            double totalcost = totalsqft * materialcost;
+
+            // Labor Calculations
+            double laborhours = totalsqft / sqftperhour;
+            double laborcalccost = laborhours * laborcost;
+
+            double finaltotalcost = totalcost + laborcalccost;
+
+            // Displaying Results
+            Console.WriteLine($"For a total floor size of {totalsqft} the flooring cost is  {totalcost:F2}");
+            Console.WriteLine($"It will take {laborhours:F2} hours to install the floor at a cost of $ {laborcalccost:F2}");
+            Console.WriteLine($"The total finished cost for the new floor is: $ {finaltotalcost:F2}");
+
+
+        }
+
+
+    }    
+
+}
